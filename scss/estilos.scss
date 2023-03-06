@@ -371,12 +371,13 @@ footer {
         border-bottom: 1px solid $color-secundario;
         padding-bottom: 5px;
     }
-    .patrones-container {
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        grid-gap: 40px 20px;
-        padding-top: 35px;
-    }
+    
+}
+.patrones-container {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 40px 20px;
+    padding-top: 35px;
 }
 
 /****************************HILADOS********************************************/

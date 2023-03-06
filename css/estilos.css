@@ -337,7 +337,8 @@ footer img {
   border-bottom: 1px solid #febe8c;
   padding-bottom: 5px;
 }
-.patrones .patrones-container {
+
+.patrones-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px 20px;
