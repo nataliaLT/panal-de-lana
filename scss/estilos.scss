@@ -368,20 +368,17 @@ footer {
         font-weight: 400;
         text-transform: uppercase;
         color: $color-principal;
+        border-bottom: 1px solid $color-secundario;
+        padding-bottom: 5px;
     }
-    hr {
-        height: 1px;
-        border: 0;
-        background: $color-secundario;
-        margin: 5px 0px 35px;
+    .patrones-container {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-gap: 40px 20px;
+        padding-top: 35px;
     }
-    
 }
-.patrones-container {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-gap: 40px 20px;
-}
+
 /****************************HILADOS********************************************/
 .hilados-submenu {
     max-width: 1360px;
@@ -409,17 +406,14 @@ footer {
         font-weight: 400;
         text-transform: uppercase;
         color: $color-principal;
-    }
-    hr {
-        height: 1px;
-        border: 0;
-        background: $color-secundario;
-        margin: 5px 0px 35px;
+        border-bottom: 1px solid $color-secundario;
+        padding-bottom: 5px;
     }
     .hilados-container {
         display: grid;
         grid-template-columns: repeat(4,1fr);
         grid-gap: 0px 20px;
+        padding-top: 35px;
 
         p {
             font-size: 12px;

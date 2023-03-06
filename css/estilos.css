@@ -334,18 +334,14 @@ footer img {
   font-weight: 400;
   text-transform: uppercase;
   color: #4b4b4b;
+  border-bottom: 1px solid #febe8c;
+  padding-bottom: 5px;
 }
-.patrones hr {
-  height: 1px;
-  border: 0;
-  background: #febe8c;
-  margin: 5px 0px 35px;
-}
-
-.patrones-container {
+.patrones .patrones-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px 20px;
+  padding-top: 35px;
 }
 
 /****************************HILADOS********************************************/
@@ -374,17 +370,14 @@ footer img {
   font-weight: 400;
   text-transform: uppercase;
   color: #4b4b4b;
-}
-.hilados hr {
-  height: 1px;
-  border: 0;
-  background: #febe8c;
-  margin: 5px 0px 35px;
+  border-bottom: 1px solid #febe8c;
+  padding-bottom: 5px;
 }
 .hilados .hilados-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 0px 20px;
+  padding-top: 35px;
 }
 .hilados .hilados-container p {
   font-size: 12px;

@@ -1,0 +1,19 @@
+{
+  "name": "panal-de-lana",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nataliaLT/panal-de-lana.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nataliaLT/panal-de-lana/issues"
+  },
+  "homepage": "https://github.com/nataliaLT/panal-de-lana#readme"
+}
