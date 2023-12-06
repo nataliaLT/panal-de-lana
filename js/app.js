@@ -5,14 +5,17 @@ let producto = parseInt(prompt('Escriba su producto: \n 1-Ovillos \n 2-Patrones'
 while (producto !== 3  ) {
     if(producto === 1 ) {
         ovillos();
+        break;
     }else if(producto === 2 ) {
         patrones();
+        break;
     }else {
         alert('eliga una opción')
     }
 
     producto = parseInt(prompt("Escriba un producto :\n 1-Ovillos \n 2-Patrones"));
 }
+
 //funciones
 //funcion para realizar pedido de ovillos
 function ovillos() {
