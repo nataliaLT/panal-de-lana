@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: "Annie Use Your Telescope", cursive;
   font-family: "Encode Sans", sans-serif;
+  position: relative;
 }
 
 ul, li, a, h1, h2, h3, p {
@@ -37,7 +38,98 @@ ul, li, a, h1, h2, h3, p {
 .navbar .menu ul li a:hover {
   color: #febe8c;
 }
-
+.btn-carrito {
+  border: none;
+  background: none;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.btn-carrito img {
+  width: 100%;
+  height: 100%;
+}
+.carro-compra.activo {
+  display: block;
+}
+.carro-compra {
+  position: absolute;
+  z-index: 6;
+  top: 64px;
+  right: 0;
+  background: #ffffff;
+  width: 24%;
+  box-shadow: 0px 17px 37px rgba(0,0,0,0.3);
+  padding: 15px;
+  display: none;
+}
+.carro-compra .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.card-carrito {
+  display: grid;
+  grid-template-columns: 150px auto;
+  grid-gap: 14px;
+  border-bottom: 1px solid #febe8c;
+  padding-bottom: 12px;
+}
+.card-carrito .imagen {
+  width: 100%;
+  height: 100%;
+}
+.card-carrito .imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-carrito .btn-precio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #febe8c;
+  width: fit-content;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.card-carrito .btn-precio  .cantidad {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-carrito .btn-precio button {
+  border: 0px;
+  width: 30px;
+  height: 30px;
+}
+.wrapper-subtotal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.btn-vaciar,
+.btn-realizar-pedido {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  border: 2px solid #febe8c;
+  color: #febe8c;
+  font-weight: 700;
+  font-size: 18px;
+  background-color: transparent;
+  padding: 10px 0px;
+  transition: background-color 0.3s color 0.3s;
+}
+.btn-vaciar:hover,
+.btn-realizar-pedido:hover {
+  background-color: #febe8c;
+  color: #ffffff;
+}
 /**********************CARRUSEL*************************/
 .carrusel {
   width: 100%;
@@ -464,7 +556,7 @@ footer img {
 /******************MOBILE*****************/
 @media (max-width: 760px) {
   .navbar {
-    padding: 10px 10px;
+    padding: 10px 0px;
   }
   .navbar .logo {
     width: fit-content;
