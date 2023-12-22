@@ -1,21 +1,35 @@
 // pedido de producto
-let producto = parseInt(prompt('Escriba su producto: \n 1-Ovillos \n 2-Patrones'));
+let producto = parseInt(prompt('Escriba su producto: \n 1-Ovillos \n 2-Patrones \n 3-Salir'));
 
 
-while (producto !== 3  ) {
+while (producto !== 4  ) {
     if(producto === 1 ) {
         ovillos();
-        break;
     }else if(producto === 2 ) {
         patrones();
-        break;
-    }else {
-        alert('eliga una opción')
+
+    }else if (producto === 3){
+        alert('salir')
+        break
     }
 
-    producto = parseInt(prompt("Escriba un producto :\n 1-Ovillos \n 2-Patrones"));
+    producto = parseInt(prompt("Escriba un producto :\n 1-Ovillos \n 2-Patrones  \n 3-Salir"));
+}
+//Class
+class PedidoOvillos{
+    constructor(composicion, color, grosor) {
+        this.composicion = composicion;
+        this.color = color;
+        this.grosor=grosor;
+    }
 }
 
+class PedidoPatrones {
+    constructor(tipoDeModelo, tipoDePatrones) {
+        this.tipoDeModelo = tipoDeModelo;
+        this.tipoDePatrones = tipoDePatrones;
+    }
+}
 //funciones
 //funcion para realizar pedido de ovillos
 function ovillos() {
@@ -23,6 +37,8 @@ function ovillos() {
     let color = prompt('Escriba el color: \n 1-Rojo \n 2-Azul \n 3-Negro ').toLocaleLowerCase();
     let grosor = prompt('Escriba el grosor disponible:\n 1-Fino \n 2-Medio \n 3-Abultado').toLocaleLowerCase();
     const pedidoFinal = 'Su pedido es un ovillo de ' + composicion + ' color ' + color + ' y grosor ' + grosor;
+    const pedidoOvillos = new PedidoOvillos(composicion, color, grosor);
+    console.log(pedidoOvillos)
     alert(pedidoFinal);
 }
 
@@ -33,4 +49,9 @@ function patrones() {
     let tipoDeModelo = prompt('Escriba el tipo de modelo:\n 1-Sweater \n 2-Cardigan \n 3-Gorro').toLocaleLowerCase();
     const pedidoFinal2 ='El patron que escogiste es un '+ tipoDeModelo + ' de ' + tipoDePatrones;
     alert(pedidoFinal2)
+}
+
+//Funcion para mostrar los pedidos finales
+function pedido() {
+
 }
