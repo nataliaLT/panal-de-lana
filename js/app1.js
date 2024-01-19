@@ -2,10 +2,18 @@ const btnCarrito = document.querySelector('.btn-carrito');
 const carroCompra = document.querySelector('.carro-compra');
 
 const carroCompraWrapper = document.querySelector('.carro-compra .wrapper');
-const btnVaciar = document.querySelector('.btn-vaciar');
-const btnRealizarPedido = document.querySelector('.btn-realizar-pedido');
+
+let llenarCarro = JSON.parse(localStorage.getItem('carrito'))  || [];
+let tarjetaCarro = '';
+let cards = '';
+let precio = [];
+const wrapperSubtotal = document.querySelector('.wrapper-subtotal');
+//let btnCarro = document.querySelectorAll('.carrito');
+creacionTarjetaCarro()
+
 
 btnCarrito.addEventListener('click', function() {
+
     if(carroCompra.classList.contains('activo')) {
         carroCompra.classList.remove('activo');
     }else {
@@ -13,55 +21,78 @@ btnCarrito.addEventListener('click', function() {
     }
 });
 
-/*console.log(btnVaciar);*/
 
 /*********************PAGINA DE TIENDA***********************/
-const contenedor = document.querySelector('.tienda-ver-mas .container');
-const tarjeta = document.querySelectorAll('.tarjeta');
-tarjeta.forEach((element) => {
-    console.log(element)
+const contenedor = document.querySelectorAll('.container .tarjeta');
+const btnVaciar = document.querySelector('.btn-vaciar');
+//evento para boton vaciar carrito
+btnVaciar.addEventListener('click', function() {
+    carroCompraWrapper.innerHTML = '';
+    wrapperSubtotal.innerHTML = '';
+    localStorage.clear()
 });
 
-
-/*
-const btnAgregarAlCarrito = document.querySelectorAll('.carrito');
-btnAgregarAlCarrito.forEach((element)=> {
-    element.addEventListener('click',()=> {
-        const card = document.createElement('div');
-  
-        card.innerHTML = `
-        <figure class="imagen"><img src="../imagenes/mandalas.jpg" alt="" srcset=""></figure>
-        <div class="data">
-        <div class="producto">Posavasos</div>
-        <div class="precio">$10.000</div>
-        <div class="btn-precio">
-            <button>-</button>
-            <div class="cantidad">1</div>
-            <button>+</button>
-        </div>
-        </div>
-        `;
-
-        carroCompraWrapper.appendChild(card);
-        document.getElementsByName('card').appendChild(card);
-        console.log(element)
+contenedor.forEach((element)=> {
+    element.addEventListener('click', function() {
+        objetoTarjeta(element)  
     });
-});
+})
 
-/*btnAgregarAlCarrito.addEventListener('click', function() {
-    console.log('entre');
-   /* const card = document.createElement('div');
-    card.innerHTML = `
-    <figure class="imagen"><img src="../imagenes/mandalas.jpg" alt="" srcset=""></figure>
+//funcion que guarda datos
+function objetoTarjeta(card) {
+    let datosTarjeta = {
+        image : card.querySelector('img').src,
+        producto : card.querySelector('h3').textContent,
+        precio : card.querySelector('.precio').textContent,
+    }
+  
+    llenarCarro.push(datosTarjeta); 
+    precio.push(datosTarjeta.precio)
+    console.log(precio)
+    creacionTarjetaCarro()
+    compraTotal(precio)
+}
+
+//Funcion que arma el html en el carrito
+function creacionTarjetaCarro() {
+   //creo objeto con datos que seran utilizados para armar mi card en el carro de compras
+   carroCompraWrapper.innerHTML = '';
+   llenarCarro.forEach((card)=> {
+    tarjetaCarro = document.createElement('div');
+    tarjetaCarro.classList.add('card-carrito')
+    tarjetaCarro.innerHTML = `
+    <figure class="imagen"><img src=${card.image} alt="" srcset=""></figure>
     <div class="data">
-      <div class="producto">Posavasos</div>
-      <div class="precio">$10.000</div>
-      <div class="btn-precio">
-        <button>-</button>
-        <div class="cantidad">1</div>
-        <button>+</button>
-      </div>
-    </div>
-    `;
-    carroCompraWrapper.appendChild(card);
-});*/
+      <div class="producto">${card.producto}</div>
+      <div class="precio">$${card.precio}</div>
+    </div>`
+    carroCompraWrapper.appendChild(tarjetaCarro);
+   
+});
+guardarDatos(llenarCarro);
+}
+//Guardo los datos en localStorage
+function guardarDatos (llenarCarro) {
+    localStorage.setItem('carrito', JSON.stringify(llenarCarro));
+}
+//Funcion para calcular total de compra
+function compraTotal(precio) {
+    wrapperSubtotal.innerHTML = '';
+    let total = 0;
+    console.log(precio)
+    precio.forEach((e)=> {
+        numeroParseado = parseFloat(e);
+        console.log(numeroParseado)
+        total += numeroParseado;
+    });
+    let totalPrecio = document.createElement('div');
+    totalPrecio.innerHTML =  `
+    <div class="subtotal">Subtotal:</div>
+    <div class="precio-total">$${total}</div>
+    `
+    wrapperSubtotal.appendChild(totalPrecio);
+}
+
+
+
+

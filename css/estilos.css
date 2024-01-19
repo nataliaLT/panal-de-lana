@@ -78,8 +78,8 @@ ul, li, a, h1, h2, h3, p {
   padding-bottom: 12px;
 }
 .card-carrito .imagen {
-  width: 100%;
-  height: 100%;
+  width: 150px;
+  height: 150px;
 }
 .card-carrito .imagen img {
   width: 100%;
@@ -279,6 +279,19 @@ ul, li, a, h1, h2, h3, p {
   color: #febe8c;
   font-weight: bold;
   font-size: 17px;
+  transition: all 0.3s;
+}
+.informacion form button:hover {
+  background-color: #febe8c;
+  color: #ffffff;
+}
+.informacion form button:disabled {
+  background-color: #e0e0e0;
+  color: #6e6e6e;
+  border-color: #e0e0e0;
+}
+.mensajeContacto  {
+  padding: 20px 0px;
 }
 
 /****************FOOTER*******************/
@@ -386,6 +399,9 @@ footer img {
   font-size: 14px;
   font-weight: 400;
   padding-bottom: 8px;
+}
+.tarjeta .info .precio::before {
+  content: '$';
 }
 .tarjeta .info .carrito {
   background: #ffffff;
